@@ -18,7 +18,8 @@
       teamRoot = document.getElementById('team-root'),
       projectIndexRoot = document.getElementById('project-index-root'),
       projectInsightsRoot = document.getElementById('project-insights-root'),
-      projectShowRoot = document.getElementById('project-show-root');
+      projectShowRoot = document.getElementById('project-show-root'),
+      zeloHome = document.getElementById('zelo-home');
 
   if(adminRoot){
     m.mount(adminRoot, c.admin.Contributions);
@@ -40,6 +41,10 @@
 
   if(projectInsightsRoot){
     m.mount(projectInsightsRoot, m.component(c.project.Insights, {root: projectInsightsRoot}));
+  }
+
+  if(zeloHome) {
+    m.mount(zeloHome, c.pages.ZeloHome);
   }
 }(window.m, window.c, window.Chart));
 
