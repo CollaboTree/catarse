@@ -1,0 +1,7 @@
+- content_for :title, 'zelo'
+= render 'shared/zelo_header', overlayer: true
+
+- content_for :application_js do
+  = javascript_include_tag 'api/application' 
+
+#zelo-home
