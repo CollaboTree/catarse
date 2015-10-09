@@ -1,4 +1,4 @@
-//= require mithril
+//= require mithril/mithril.js
 //= require underscore
 //= require mithril.postgrest
 //= require moment
@@ -22,7 +22,11 @@
       zeloHome = document.getElementById('zelo-home');
 
   if(adminRoot){
-    m.mount(adminRoot, c.admin.Contributions);
+    m.route.mode = 'hash';
+    m.route(adminRoot, '/', {
+      '/': m.component(c.admin.Contributions, {root: adminRoot}),
+      '/users': m.component(c.admin.Users)
+    });
   }
 
   if(teamRoot){
@@ -35,7 +39,8 @@
 
   if(projectShowRoot) {
     m.mount(projectShowRoot, m.component(c.project.Show, {
-      project_id: projectShowRoot.getAttribute('data-id')
+      project_id: projectShowRoot.getAttribute('data-id'),
+      project_user_id: projectShowRoot.getAttribute('data-project-user-id')
     }));
   }
 

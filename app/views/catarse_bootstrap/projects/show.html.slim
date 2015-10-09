@@ -24,10 +24,12 @@
 
 = render 'shared/header_big'
 
-#project-show-root data-id=@project.id
+#project-show-root data-id=@project.id data-project-user-id=@project.user_id
 
 - content_for :application_js do
   = javascript_include_tag "api/application"
+  = javascript_include_tag "jquery"
+  = javascript_include_tag "app/utils/mix_panel"
 
 = render 'shared/footer_big'
 
